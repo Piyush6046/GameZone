@@ -2,4 +2,4 @@
 Gamezone
 username - 1
 password - 1
-Pro Gamer Zone
+Open live preview -https://piyush6046.github.io/GameZone/
