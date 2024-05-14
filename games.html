@@ -183,6 +183,21 @@
             </ul>
         </div>
     </section>
+     <script>
+        function checkLogin(gamePage) {
+            console.log("Checking login status...");
+            var username = localStorage.getItem('username');
+            console.log("Username:", username);
+            if (!username) {
+                alert('Please login to access games.');
+                console.log("Redirecting to login page...");
+                window.location.href = "login/index.html";
+            } else {
+                console.log("User is logged in, redirecting to game page:", gamePage);
+                window.location.href = gamePage;
+            }
+        }
+    </script>
     <footer>
         <div class="container">
             <p>&copy; 2024 Pro Gamer Zone. All rights reserved.</p>
