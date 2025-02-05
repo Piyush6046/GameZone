@@ -1,120 +1,259 @@
-/* Reset default browser styles */
+:root {
+    --primary-color: #FF4500;
+    --secondary-color: #FF6347;
+    --dark-bg: #020202;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #020202; /* Dark background */
+    background-color: var(--dark-bg);
     color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.5rem;
 }
 
+/* Header Styles */
 header {
-    padding: 70px 0;
+    position: relative;
+    padding: 4rem 0;
     text-align: center;
-    background: url('https://png.pngtree.com/thumb_back/fh260/background/20221229/pngtree-gaming-youtube-banner-background-2560x1440-image_1537493.jpg'); /* Animated background */
+    background: linear-gradient(
+            rgba(2, 2, 2, 0.7),
+            rgba(2, 2, 2, 0.7)
+        ),
+        url('https://png.pngtree.com/thumb_back/fh260/background/20221229/pngtree-gaming-youtube-banner-background-2560x1440-image_1537493.jpg');
     background-size: cover;
     background-position: center;
-    animation: backgroundAnimation 20s infinite linear;
+    background-attachment: fixed;
+    overflow: hidden;
 }
 
-@keyframes backgroundAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg"><path d="M 0 10 L 50 0 L 100 10" fill="%23FF4500" /></svg>') repeat-x;
+    background-size: 100px 60px;
 }
 
 header h1 {
-    font-size: 48px;
-    text-shadow: 2px 2px 4px rgba(6, 6, 6, 0.5); /* Text shadow for a gaming effect */
+    font-size: 3.5rem;
+    text-shadow: var(--text-shadow);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation */
+nav {
+    position: relative;
+    z-index: 2;
 }
 
 nav ul {
-    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
+nav a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    position: relative;
 }
 
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
 .hero {
-    background-image: url('https://wallpapers.com/images/high/best-gaming-background-nk6pk2gt3j5f1vaf.webp'); /* Replace 'https://example.com/background.jpg' with the actual URL of the image */
+    position: relative;
+    background: linear-gradient(135deg, rgba(2,2,2,0.9) 0%, rgba(45,45,45,0.8) 100%),
+                url('https://wallpapers.com/images/high/best-gaming-background-nk6pk2gt3j5f1vaf.webp');
     background-size: cover;
     background-position: center;
-    color: #fff;
-    padding: 320px 0;
+    background-attachment: fixed;
+    padding: 8rem 0;
     text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: -5rem;
 }
 
 .hero h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for a gaming effect */
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: var(--text-shadow);
+    line-height: 1.2;
 }
 
+/* Button Styles */
 .btn {
-    display: inline-block;
-    background-color: #FF4500; /* OrangeRed */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
     color: #fff;
-    padding: 10px 20px;
+    padding: 0.8rem 2rem;
     text-decoration: none;
-    border-radius: 5px;
-    font-size: 20px;
-    margin-top: 20px;
-    transition: all 0.3s ease;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn:hover {
-    background-color: #FF6347; /* Tomato */
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,69,0,0.3);
 }
 
+/* Featured Games */
 .featured-games {
-    padding: 50px 0;
-    text-align: center;
+    padding: 5rem 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Each column minimum 300px width, expand as much as possible */
-    gap: 20px; /* Gap between game cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    position: relative;
 }
 
 .game-card {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); /* Box shadow */
-    overflow: hidden; /* Hide any content that exceeds the dimensions of the card */
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.game-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 .game-card iframe {
-    width: 100%; /* Make the iframe inside the game card fill its container */
-    height: 400px; /* Set a fixed height for the iframe */
+    width: 100%;
+    height: 400px;
     border: none;
+    background: #000;
 }
 
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .featured-games {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid columns for smaller screens */
+/* Responsive Design */
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero {
+        padding: 6rem 0;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+
+    .hero h2 {
+        font-size: 2rem;
     }
 }
 
+@media (max-width: 768px) {
+    .game-card iframe {
+        height: 300px;
+    }
 
+    nav ul {
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .featured-games {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
