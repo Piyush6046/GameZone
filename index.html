@@ -9,236 +9,227 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <style>
       
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto Condensed', sans-serif;
-            background-image: url("sources/background.jpg");
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            padding: 20px 0;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.8);
-            position: relative;
-        }
-
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    
+    body {
+        background-image: url("sources/background.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #ffffff;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+        padding: 20px 0;
+        background: rgba(0, 0, 0, 0.85);
+        text-align: center;
+        position: relative;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    header h1 {
+        font-size: 3.5rem;
+        color: #ff4d00;
+        text-shadow: 2px 2px 5px rgba(255, 77, 0, 0.6);
+    }
+    
+    nav ul {
+        list-style: none;
+        margin-top: 10px;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    nav ul li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    nav ul li a:hover {
+        color: #ff4d00;
+    }
+    
+    /* Avatar */
+    .avatar {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .avatar:hover {
+        transform: scale(1.1);
+    }
+    
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    /* User Options */
+    .user-options {
+        position: absolute;
+        top: 80px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        display: none;
+    }
+    
+    .user-options ul {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .user-options ul li {
+        margin: 10px 0;
+    }
+    
+    .user-options ul li a {
+        color: #333;
+        font-size: 1.4rem;
+        text-decoration: none;
+    }
+    
+    .user-options ul li a:hover {
+        color: #ff4d00;
+    }
+    
+    /* Hero Section */
+    .hero {
+        text-align: center;
+        padding: 100px 0;
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+        text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.7);
+    }
+    
+    .hero h3 {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: #ff4d00;
+        color: #fff;
+        padding: 12px 25px;
+        text-decoration: none;
+        font-size: 1.8rem;
+        border-radius: 8px;
+        transition: background 0.3s ease;
+    }
+    
+    .btn:hover {
+        background: #e03c00;
+    }
+    
+    /* Game List */
+    .game-list {
+        text-align: center;
+        padding: 50px 0;
+        background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .game-list h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #ff4d00;
+    }
+    
+    .game-list ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .game-list li {
+        width: 300px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .game-list li:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(255, 77, 0, 0.4);
+    }
+    
+    .game-list li img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .game-list li p {
+        font-size: 1.6rem;
+        padding: 10px;
+    }
+    
+    /* Footer */
+    footer {
+        background: #222;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+    }
+    
+    footer p {
+        font-size: 1.4rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
         header h1 {
-            color: rgb(216, 232, 213);
-            font-size: 3.5rem;
-            text-shadow: 2px 2px 4px rgba(240, 5, 5, 0.5);
-            margin-bottom: 20px;
-        }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-
-        nav ul li a {
-            color: #fefefe;
-            text-decoration: none;
-            font-size: 1.8rem;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #fa4604;
-        }
-
-        .avatar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .avatar img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .avatar:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-        }
-
-        .user-options {
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            padding: 10px 20px;
-            display: none;
-            z-index: 1;
-        }
-
-        .user-options ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .user-options ul li {
-            margin-bottom: 10px;
-        }
-
-        .user-options ul li a {
-            color: #333;
-            text-decoration: none;
-            font-size: 1.6rem;
-        }
-
-        .user-options ul li a:hover {
-            color: #fa4604;
-        }
-
-        .hero {
-            background-color: rgba(0, 0, 0, 0);
-            color: #ffffff;
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(9, 202, 232, 0.5);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: #fa4604;
-            color: #f5f1f1;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.8rem;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #e62908;
-        }
-
-        .game-list {
-            background-color: rgba(6, 0, 0, 0.5);
-            color: #fff;
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        .game-list h2 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
         }
-
+    
+        nav ul li a {
+            font-size: 1.3rem;
+        }
+    
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+    
         .game-list ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
         }
-
+    
         .game-list li {
-            margin: 10px;
-            flex: 0 0 calc(33.333% - 20px);
-            max-width: calc(33.333% - 20px);
-            position: relative;
-            overflow: hidden;
-            transform: translateY(50px);
-            opacity: 0;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .game-list li a {
-            display: block;
-            background-color: #818ff8;
-            color: #fff;
-            padding: 20px;
-            text-decoration: none;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .game-list li a:hover {
-            background-color: #f3800d;
-        }
-
-        .game-list li img {
             width: 100%;
-            height: auto;
-            border-radius: 10px;
         }
+    }
 
-        .game-list li p {
-            margin-top: 10px;
-            font-size: 1.6rem;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer p {
-            font-size: 1.4rem;
-        }
-
-        .social-media {
-            margin-top: 20px;
-        }
-
-        .social-media a {
-            color: #fff;
-            font-size: 1.6rem;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .social-media a:hover {
-            color: #fa4604;
-        }
     </style>
 </head>
 <body>
